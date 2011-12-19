@@ -118,7 +118,7 @@
 	point (apply circle x* y* r options)
 	label (point-label props x* y* x y r)]
     (-> chart
-	(update-in [:points] (fn [old] (conj old (apply assoc {:x x, :y y, :r r} options))))
+	(update-in [:points] (fn [old] (conj old (apply assoc {:x x, :y y, :r r :point point} options))))
 	(assoc :svg (concat (:svg chart) (if label-points? [point label] [point]))))))
 
 (defn points->xy [points]
